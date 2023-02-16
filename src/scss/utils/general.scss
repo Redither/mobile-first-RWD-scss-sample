@@ -1,0 +1,26 @@
+@use "mixins";
+@use "variables";
+
+*,
+*::before,
+*::after {
+    @include mixins.reset;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Raleway', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: variables.$white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+main {
+  overflow: hidden;
+}

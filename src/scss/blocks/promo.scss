@@ -1,0 +1,147 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.promo {
+    background-color: variables.$black;
+    padding-top: 18rem;
+    width: 100%;
+}
+
+.promo__wrapper {
+    @include mixins.wrapper-desktop;
+    margin: 0 auto;
+    display: flex;
+}
+
+.promo__controls {
+  margin-top: 7rem;
+  margin-right: 3.8rem;
+  margin-left: auto;
+}
+
+.promo__slider {
+  position: relative;
+}
+
+.promo__text {
+    color: #ffffff;
+    font-size: 2.7rem;
+    line-height: 4.5rem;
+    letter-spacing: 0.33rem;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    margin-top: 5rem;
+}
+
+.promo__content {
+    max-width: 577px;
+    padding-bottom: 3.9rem;
+}
+
+.promo__order {
+    display: flex;
+    align-items: center;
+    max-width: 214px;
+    min-height: 60px;
+    background-color: variables.$yellow;
+    color: #161616;
+    margin-top: 4.5rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 0.15rem;
+    padding-left: 5rem;
+}
+
+@media (max-width: variables.$min-desktop) {
+  .promo {
+    position: relative;
+  }
+
+  .promo__wrapper {
+    justify-content: center;
+  }
+
+  .promo__slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .promo__content {
+    position: relative;
+    z-index: 90;
+  }
+}
+
+
+@media (max-width: variables.$mobile) {
+  .promo {
+    padding-top: 0;
+  }
+
+  .promo__text {
+    font-size: 1.8rem;
+    line-height: 3.4rem;
+    letter-spacing: 0.2rem;
+
+    margin-top: 0rem;
+    padding-top: 16.25rem;
+    padding-left: 1.6rem;
+    padding-right: 1rem;
+  }
+
+  .promo__order {
+    padding: 0;
+    justify-content: center;
+    max-width: 16.8rem;
+    min-height: 5.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    margin-left: 1.6rem;
+
+    font-size: 1.4rem;
+  }
+
+  .promo__controls {
+    margin-top: 4.7rem;
+    margin-right: 1.4rem;
+  }
+
+  .promo__content {
+    padding-bottom: 2.2rem;
+  }
+}
+
+@media print {
+  .promo {
+    padding-top: 2cm;
+    background: none;
+  }
+
+  .promo__content {
+    &::before {
+      content: "+7 (927) 678-45-14";
+      font-size: 15pt;
+    }
+  }
+
+  .promo__slider {
+    display: none;
+  }
+
+  .promo__text {
+    font-size: 20pt;
+    margin-top: 0;
+    color: #000;
+  }
+
+  .promo__order {
+    display: none;
+  }
+}

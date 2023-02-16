@@ -1,0 +1,81 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.services {
+  background-color: #fff;
+  padding-top: 21.4rem;
+  padding-bottom: 7rem;
+}
+
+.services__wrapper {
+  @include mixins.wrapper-desktop;
+  margin: 0 auto;
+}
+
+.services__text {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  padding-left: 0.7rem;
+}
+
+.services__list {
+  list-style: none;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-left: -3rem;
+}
+
+.services__service-card {
+  margin-left: 3rem;
+  margin-top: 4.5rem;
+}
+
+@media (max-width: variables.$min-desktop) {
+  .services {
+    padding-top: 6rem;
+  }
+
+  .services__list {
+    justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: variables.$mobile) {
+  .services {
+    padding-bottom: 0;
+  }
+
+  .services__text {
+    font-size: 2rem;
+  }
+
+  .services__list {
+    margin-top: 0;
+  }
+
+  .services__service-card {
+    &:not(:first-child) {
+      margin-top: 3.5rem;
+    }
+  }
+}
+
+@media print {
+  .services {
+    page-break-after: always;
+  }
+
+  .services__list {
+    flex-direction: row;
+  }
+
+  .services__service-card {
+    margin-top: 0;
+    margin-left: 0;
+  }
+}

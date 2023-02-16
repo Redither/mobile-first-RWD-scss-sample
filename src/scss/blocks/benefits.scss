@@ -1,0 +1,154 @@
+@use "../utils/variables";
+@use "sass:map";
+
+.benefits {
+  background-color: #fff;
+  padding-top: 10rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.benefits__heading {
+  font-size: 3rem;
+  font-weight: map.get(variables.$font-weights, "bold");
+  margin-left: 4.6rem;
+}
+
+.benefits__list {
+  list-style: none;
+  margin-top: (1rem - 0.3rem);
+  max-width: 101rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+
+  counter-reset: li;
+}
+
+.benefits__item {
+  counter-increment: li;
+  display: flex;
+  position: relative;
+  margin-top: 7.9rem;
+  flex-grow: 1;
+
+  &:nth-child(3n + 1) {
+    flex-basis: 38.7rem;
+  }
+
+  &:nth-child(3n + 2) {
+    flex-basis: 37.3rem;
+  }
+
+  &:nth-child(3n + 3) {
+    flex-basis: 25rem;
+  }
+
+  &::after {
+    content: "0"counter(li);
+    order: -1;
+    width: 5.1rem;
+    height: 5.1rem;
+    background-color: variables.$yellow;
+
+    display: flex;
+    flex-shrink: 1;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    font-weight: map.get(variables.$font-weights, "bold");
+    color: #000;
+    letter-spacing: 0.3rem;
+
+  }
+}
+
+.benefits__text {
+  font-weight: map.get(variables.$font-weights, "bold");
+  font-size: 1.6rem;
+  margin-left: 4rem;
+
+  &::before {
+    content: counter(li);
+    position: absolute;
+    top: -7rem;
+    font-weight: map.get(variables.$font-weights, "bold");
+    font-size: 8rem;
+    color: rgba(#000, 0.03);
+  }
+}
+
+@media (max-width: variables.$min-benefits) {
+  .benefits__heading {
+    margin-left: 0;
+  }
+
+  .benefits__list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .benefits__item {
+    min-width: 27.3rem;
+
+    &:nth-child(3n + 1),
+    &:nth-child(3n + 2),
+    &:nth-child(3n + 3) {
+      flex-basis: auto;
+    }
+  }
+
+  .benefits__text {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: variables.$mobile) {
+  .benefits {
+    padding-top: 0;
+  }
+
+  .benefits__heading {
+    font-size: 2rem;
+    padding-top: 6.1rem;
+  }
+
+  .benefits__list {
+    margin-top: 0;
+  }
+
+  .benefits__item {
+    margin-top: 3rem;
+    max-height: 5.1rem;
+
+    &:not(:first-child) {
+      margin-top: 3.5rem;
+    }
+  }
+}
+
+@media print {
+  .benefits__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+  }
+
+  .benefits__item {
+    margin-top: 0.3cm;
+
+    &::after {
+      font-size: 11pt;
+    }
+  }
+
+  .benefits__heading {
+    font-size: 15pt;
+  }
+}

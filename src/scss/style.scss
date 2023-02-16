@@ -1,0 +1,21 @@
+@use "utils/fonts";
+@use "utils/variables";
+@use "utils/mixins";
+@use "utils/general";
+@use "blocks/visually-hidden";
+
+@use "blocks/logo";
+@use "blocks/navigation";
+@use "blocks/promo";
+@use "blocks/controls";
+@use "blocks/slider";
+@use "blocks/services";
+@use "blocks/service-card";
+@use "blocks/on-map";
+@use "blocks/benefits";
+@use "blocks/map";
+@use "blocks/rent";
+@use "blocks/store";
+@use "blocks/form";
+@use "blocks/header";
+@use "blocks/footer";

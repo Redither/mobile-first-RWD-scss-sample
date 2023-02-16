@@ -1,0 +1,62 @@
+@use "../utils/variables";
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.controls__previous,
+.controls__next {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.controls__next {
+    order: 5;
+    transform: rotate(180deg);
+    margin-left: 0.5rem;
+}
+
+.controls__previous {
+    margin-right: 2rem;
+}
+
+.controls__slides {
+    color: #ffffff;
+    font-size: 1.8rem;
+    letter-spacing: 1rem;
+}
+
+@media (max-width: variables.$mobile) {
+  .controls__slides {
+    font-size: 1.5rem;
+    letter-spacing: 0.9rem;
+  }
+
+  .controls__arrow {
+    width: 1.9rem;
+    height: 0.6rem;
+  }
+
+  .controls__previous,
+  .controls__next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .controls__next {
+    margin-left: 0.3rem;
+  }
+
+  .controls__previous {
+      margin-right: 1.8rem;
+  }
+}
+
+@media print {
+  .controls {
+    display: none;
+  }
+}
