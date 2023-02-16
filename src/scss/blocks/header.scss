@@ -1,0 +1,169 @@
+@use "../utils/variables";
+@use "../utils/mixins";
+
+.header {
+    background-color: variables.$black;
+    width: 100%;
+    position: absolute;
+    z-index: 100;
+}
+
+.header__wrapper {
+    @include mixins.wrapper-desktop;
+    margin: 0 auto;
+    display: flex;
+    padding-top: 2.9rem;
+    padding-bottom: 3rem;
+}
+
+.header__button {
+  display: none;
+}
+
+.header__navigation {
+  margin-left: 7.8rem;
+}
+
+.header__tel,
+.header__address {
+    font-size: 1.7rem;
+    text-decoration: none;
+    color: #ffffff;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.header__tel {
+    font-size: 1.3rem;
+    letter-spacing: 0.13rem;
+    margin-top: 1rem;
+    margin-right: 3.6rem;
+    margin-left: auto;
+}
+
+.header__address {
+    font-size: 1rem;
+    margin-top: 1.3rem;
+    margin-right: 3.4rem;
+}
+
+.header__button {
+    display: none;
+}
+
+.header__phone,
+.header__marker {
+    position: absolute;
+}
+
+.header__phone {
+    top: 0.2rem;
+    left: 0.1rem;
+}
+
+.header__marker {
+    top: 0;
+    left: 0.3rem;
+}
+
+@media (max-width: variables.$min-desktop) {
+  .header {
+    background: none;
+  }
+
+  .header__wrapper {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+
+  .header__tel {
+    margin-right: 1rem;
+  }
+}
+
+@media (max-width: (variables.$min-desktop - 10px)) {
+  .header__wrapper {
+    flex-wrap: wrap;
+
+    &--menu-open {
+      background-color: variables.$black;
+      height: 100vh;
+    }
+  }
+
+  .header__logo {
+    max-height: 3.8rem;
+  }
+
+  .header__tel,
+  .header__address {
+    display: none;
+  }
+
+  .header__button {
+    background: none;
+    border: none;
+    outline: none;
+
+    display: flex;
+    align-items: flex-start;
+
+    max-height: 3.8rem;
+
+    margin-top: 0.6rem;
+    margin-right: 0;
+    margin-left: auto;
+
+    .header__close {
+      display: block;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    .header__open {
+      display: block;
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &--close {
+      width: 2.7rem;
+      height: 2.7rem;
+
+      .header__close {
+        display: block;
+      }
+
+      .header__open {
+        display: none;
+      }
+    }
+  }
+
+  .header__navigation {
+    margin-left: 0;
+    margin-top: 10.3rem;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    &--open {
+      display: flex;
+    }
+
+    a:not(:first-child) {
+      margin-left: 0;
+      margin-top: 4rem;
+    }
+  }
+}
+
+@media print {
+  .header {
+    display: none;
+  }
+}

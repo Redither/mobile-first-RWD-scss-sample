@@ -1,0 +1,9 @@
+@mixin reset {
+    margin: 0;
+    padding: 0;
+}
+
+@mixin wrapper-desktop {
+  max-width: 117rem;
+  width: 100%;
+}
